@@ -87,8 +87,7 @@ sudo apt update -y
   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 - <b>install jenkins suggested plugins </b>.
-#
-- <b id="EKS">Create EKS Cluster on AWS (Master machine)</b>
+## Create EKS Cluster on AWS (Master machine)
   - IAM user with **access keys and secret access keys**
   - AWSCLI should be configured </a>
   ```bash
