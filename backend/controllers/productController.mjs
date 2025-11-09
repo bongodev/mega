@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+import Product from '../models/product.mjs'; 
 
 const createProduct = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ const getAllProducts = async (req, res) => {
   res.json(products);
 };
 
-module.exports = {
+export {
   createProduct,
   getAllProducts,
 };
