@@ -309,6 +309,39 @@ Create SonarQube Token:
   Settings > Repositories > Connect Repo > VIA HTTP/HTTPS (for public repo)
   For Private repo: user - github-user-name, password - create a github PAT key (i.e. argocd-key)
 ```
+## Add Cluster in Argocd
+```bash
+  Login to ArgoCD in terminal (master machine terminal):
+    - argocd login <argocd-url> --username admin
+      example: argocd login 44.255.55.146:32672 --username admin
+
+  Check ArgoDC Cluster List:
+    $ argocd cluster list (you should see default cluster)
+
+  Get context:
+    kubectl config get-contexts
+
+  Add cluster information to inform ArgoCD where to deploy:
+    $ argocd cluster add cluster-name-from-context --name any-name
+      Example: argocd cluster add mega-project-user@mega.us-west-2.eksctl.io --name mega-ekscluster
+
+```
+## Create an app in Argocd (browser)
+```bash
+  Applications > New app:
+  - Set these: Application Name: mega | Project Name: default | Sync Policy: Automatic
+  - Check mark: Enable Auto-Sync, Prune Resources, Self Heal, Auto-Create Namespace
+  - SOURCE: Resource URL: mega project GitHub URL, Revision: main (gitHub branch)
+  - Path: kubernetes (In GitHub, kubenetes manifest directory is "kubernetes")
+  - DESTINATION: select the cluster (not default one)
+  - Namespace: mega
+```
+
+## Add FrontEnd and BackEnd services NodePort to Node Instance (worker) Security group:
+```bash
+  backend nodePort: 31100
+  frontend nodePort: 31000
+``
 
 ## Add Shared Library Repo for Jenkins to pick up the Shared Library:
 ```bash
