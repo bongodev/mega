@@ -145,6 +145,7 @@ aws configure
     --approve
   ```
   - <b>Create Nodegroup on Master machine, it might take 15 to 20 minutes</b>
+  - <i>It will create 2 nodes ec2 machines</i>
   ```bash
   eksctl create nodegroup --cluster=mega \
                        --region=us-west-2 \
@@ -153,6 +154,19 @@ aws configure
                        --nodes=2 \
                        --nodes-min=2 \
                        --nodes-max=2 \
+                       --node-volume-size=29 \
+                       --ssh-access \
+                       --ssh-public-key=eks-nodegroup-key 
+  ```
+- <i>OR, It will create 1 node ec2 machine</i>
+  ```bash
+  eksctl create nodegroup --cluster=mega \
+                       --region=us-west-2 \
+                       --name=mega \
+                       --node-type=t2.large \
+                       --nodes=1 \
+                       --nodes-min=1 \
+                       --nodes-max=1 \
                        --node-volume-size=29 \
                        --ssh-access \
                        --ssh-public-key=eks-nodegroup-key 
