@@ -263,7 +263,7 @@ Create SonarQube Token:
 ## Add GitHub PAT Key to Jenkins
 ```bash
   - Create a GitHub PAT Key
-  - Add the key to Jenkins > Credentials > Global Credentials (add here)
+  - Add the key to Jenkins > Credentials > Global Credentials > Kind: Username with password
 ```
 
 ## Create SonarQube Webhook for Jenkins
