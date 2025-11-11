@@ -29,7 +29,7 @@ export default function ProductForm() {
     event.preventDefault();
 
     invAxios
-      .post('/products', product)
+      .post('/api/products', product)
       .then((res) => routeToHome())
       .catch((err) => {
         alert('Failed to create!!!');
