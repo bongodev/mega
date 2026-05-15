@@ -105,6 +105,9 @@ sudo apt update -y
 ```bash
 aws --version
 aws configure
+
+Create an AWS USER mega-admin and Attach Policy > Administrator Access
+  - Create Access_key and Secret_key
 ```
 
 ## Create an AWS Role Called mega-ec2-role and attach it to Master machine
